@@ -4,40 +4,79 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    font-family: "Manrope", sans-serif;;
+    font-family: "Manrope", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 85%;
 }
 
 header>.container{
     display: flex;
     justify-content: space-around; 
+    align-items: center;
 }
+
+
 
 nav{
     display: flex;
-    align-items: start;
+    gap: 20px;
 }
 .menu>*{
-    margin-left: 40px;
-    margin-top: 40px;
     color: black;
-    text-decoration: none;
 }
 
 nav>input{
     border-radius: 25px;
+    border: 1px grey solid;
+    padding:5px 10px;
 }
 
 a:hover{
     text-decoration: underline;
 }
+.title_img{
+    padding-top: 10%;
+}
 
-.title_img>img{
+.image_{
+    width: 300px;
+    height: 429px;
     display: block;
     margin: auto;
     position: relative;
-    filter: brightness(40%);
-    top: 100px;
     border-radius: 4px;
+    background-image: url(image/model.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+.image_::after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    background-color: black;
+    content:"";
+    opacity: 0.5;
+    z-index: 1;
+}
+.image_>h1{
+    position: relative;
+    z-index: 99;
+}
+.image_>*{
+    color:aliceblue;
+    
 }
 main>.container{
     width: 75%;
@@ -45,18 +84,16 @@ main>.container{
     margin: auto;
     height: 70vh;
 }
-
 .aboutUs{
+    padding:50px 0px ;
     background-color: #cfdce6;
+}
+
+.aboutUs>.container{
     display: flex;
-    height: 60vh;
-    align-items: center;
     justify-content: space-around;
 }
-.aboutUs>div{
-    margin-top: 5%;
-    margin-left: 15%;
-}
+
 
 .aboutUs span{
     width: 218px;
@@ -67,13 +104,14 @@ article{
     align-items: start;
     justify-content: space-between;
 }
-
 .followUs{
-    height: 30vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     background-color: rgb(27, 27, 27);
+    padding: 100px 0px;
+}
+.followUs>.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 footer *{
@@ -89,6 +127,7 @@ footer *{
 
 .followUs *{
     color: #DDDADA;
+    text-align: center;
 }
 
 footer{
@@ -102,10 +141,9 @@ footer{
 .social{
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
-.social>div{
-    margin-left: 10%;
-}
+
 
 #map {
     height: 600px;
@@ -119,9 +157,7 @@ footer{
     display: flex;
 }
 
-.menu_small_icon {
-    display: none;
-}
+
 
 .menu-small {
     display: none;
@@ -161,6 +197,7 @@ footer{
         background: white;
         transform: translateX(-100%);
         z-index: 2;
+        top: 0;
     }
     .menu-small>*{
         margin-top: 20%;
@@ -200,9 +237,9 @@ footer{
     .inner p {
         margin: 0
     }
-    .aboutUs{
-        display: block;
-        height: 85vh;
+    .aboutUs>.container{
+        flex-direction: column;
+        align-items: center;
     }
     .aboutUs article{
         justify-content: flex-start;

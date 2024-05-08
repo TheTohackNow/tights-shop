@@ -1,16 +1,25 @@
 let condition = true;
 
 $('.menu_small_icon').click(function(){
+    clickable();
+});
+
+$('.menu_small_item').click(function(){
+    clickable();
+})
+
+function clickable(){
     if(condition){
         anime({
             targets: '.menu-small',
             translateX: ['-100%', '0'],
             easing: 'easeInOutQuad',
             direction: 'alternate',
-            duration: 1000,
+            duration: 500,
             loop: false
         });
         condition = false;
+        $('body').css("overflow", "hidden");
     }
     else{
         anime({
@@ -18,16 +27,13 @@ $('.menu_small_icon').click(function(){
             translateX: [ '0', '-100%'],
             easing: 'easeInOutQuad',
             direction: 'alternate',
-            duration: 1000,
+            duration: 500,
             loop: false
         });
         condition = true;
+        $('body').css("overflow", "scroll");
     }
-});
-
-
-
-
+}
 
 let map = new ol.Map({
     target: 'map',
